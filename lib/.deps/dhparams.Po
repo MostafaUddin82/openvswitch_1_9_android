@@ -1,0 +1,112 @@
+lib/dhparams.o: lib/dhparams.c lib/dhparams.h \
+ /opt/local/include/openssl/dh.h /opt/local/include/openssl/e_os2.h \
+ /opt/local/include/openssl/opensslconf.h \
+ /opt/local/include/openssl/bio.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdio.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/android/api-level.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/_types.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdint.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/posix_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/stddef.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/compiler.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/posix_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/types.h \
+ include/linux/types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/kernel.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h \
+ /opt/local/include/openssl/crypto.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdlib.h \
+ lib/string.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/string.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/malloc.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/alloca.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/strings.h \
+ lib/memory.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdbool.h \
+ /opt/local/include/openssl/stack.h \
+ /opt/local/include/openssl/safestack.h \
+ /opt/local/include/openssl/opensslv.h \
+ /opt/local/include/openssl/ossl_typ.h \
+ /opt/local/include/openssl/symhacks.h /opt/local/include/openssl/bn.h
+
+lib/dhparams.h:
+
+/opt/local/include/openssl/dh.h:
+
+/opt/local/include/openssl/e_os2.h:
+
+/opt/local/include/openssl/opensslconf.h:
+
+/opt/local/include/openssl/bio.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdio.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/android/api-level.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/_types.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdint.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/posix_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/stddef.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/compiler.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/posix_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/types.h:
+
+include/linux/types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/kernel.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h:
+
+/opt/local/include/openssl/crypto.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdlib.h:
+
+lib/string.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/string.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/malloc.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/alloca.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/strings.h:
+
+lib/memory.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdbool.h:
+
+/opt/local/include/openssl/stack.h:
+
+/opt/local/include/openssl/safestack.h:
+
+/opt/local/include/openssl/opensslv.h:
+
+/opt/local/include/openssl/ossl_typ.h:
+
+/opt/local/include/openssl/symhacks.h:
+
+/opt/local/include/openssl/bn.h:

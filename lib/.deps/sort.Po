@@ -1,0 +1,20 @@
+lib/sort.o: lib/sort.c config.h lib/sort.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h \
+ lib/random.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdint.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/_types.h
+
+config.h:
+
+lib/sort.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h:
+
+lib/random.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdint.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/_types.h:

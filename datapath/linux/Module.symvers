@@ -1,0 +1,2 @@
+0xa17b8636	ovs_dp_ioctl_hook	/Users/umamaahmed/Documents/HotNet2013/openvswitch-1.9.0/datapath/linux/openvswitch	EXPORT_SYMBOL
+0xcab9d7f9	br_should_route_hook	/Users/umamaahmed/Documents/HotNet2013/openvswitch-1.9.0/datapath/linux/brcompat	EXPORT_SYMBOL

@@ -1,0 +1,226 @@
+lib/lacp.o: lib/lacp.c config.h lib/lacp.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdbool.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdint.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/_types.h \
+ lib/packets.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/inttypes.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/android/api-level.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/posix_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/stddef.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/compiler.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/posix_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/types.h \
+ include/linux/types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/kernel.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/netinet/in.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/endian.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/endian.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/socket.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/socket.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/sockios.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/sockios.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/uio.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/in.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/byteorder.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/byteorder/little_endian.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/byteorder/swab.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/byteorder/generic.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/in6.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/ipv6.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/netinet/in6.h \
+ lib/string.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/string.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/malloc.h \
+ lib/compiler.h include/openvswitch/types.h lib/random.h lib/util.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/limits.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/limits.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/limits.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/internal_types.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/limits.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/syslimits.h \
+ /Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdio.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/assert.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdlib.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/alloca.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/strings.h \
+ lib/memory.h lib/dynamic-string.h lib/hash.h lib/hmap.h lib/ofpbuf.h \
+ lib/list.h lib/poll-loop.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/poll.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/poll.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/poll.h \
+ lib/shash.h lib/timer.h lib/timeval.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/time.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/time.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/time.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/siginfo.h \
+ /Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm-generic/siginfo.h \
+ lib/type-props.h lib/unixctl.h lib/vlog.h lib/sat-math.h \
+ lib/token-bucket.h
+
+config.h:
+
+lib/lacp.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdbool.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdint.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/_types.h:
+
+lib/packets.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/inttypes.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/android/api-level.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/posix_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/stddef.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/compiler.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/posix_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/types.h:
+
+include/linux/types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/kernel.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/netinet/in.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/endian.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/endian.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/socket.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/socket.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/sockios.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/sockios.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/uio.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/in.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/byteorder.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/byteorder/little_endian.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/byteorder/swab.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/byteorder/generic.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/in6.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/ipv6.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/netinet/in6.h:
+
+lib/string.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/string.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/malloc.h:
+
+lib/compiler.h:
+
+include/openvswitch/types.h:
+
+lib/random.h:
+
+lib/util.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/limits.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/limits.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/limits.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/internal_types.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/machine/limits.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/syslimits.h:
+
+/Volumes/androidnew/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdio.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/assert.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/stdlib.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/alloca.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/strings.h:
+
+lib/memory.h:
+
+lib/dynamic-string.h:
+
+lib/hash.h:
+
+lib/hmap.h:
+
+lib/ofpbuf.h:
+
+lib/list.h:
+
+lib/poll-loop.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/poll.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/poll.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/poll.h:
+
+lib/shash.h:
+
+lib/timer.h:
+
+lib/timeval.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/time.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/sys/time.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/linux/time.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm/siginfo.h:
+
+/Volumes/androidnew/prebuilts/ndk/8/platforms/android-8/arch-arm/usr/include/asm-generic/siginfo.h:
+
+lib/type-props.h:
+
+lib/unixctl.h:
+
+lib/vlog.h:
+
+lib/sat-math.h:
+
+lib/token-bucket.h:

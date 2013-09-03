@@ -1,0 +1,572 @@
+diff --git a/datapath/linux/Makefile.main.in b/datapath/linux/Makefile.main.in
+index 2e445ac..a9a5847 100644
+--- a/datapath/linux/Makefile.main.in
++++ b/datapath/linux/Makefile.main.in
+@@ -67,7 +67,7 @@ ifeq (,$(wildcard $(CONFIG_FILE)))
+ endif
+ 
+ default:
+-	$(MAKE) -C $(KSRC) M=$(builddir) modules
++	$(MAKE) -C $(KSRC) M=$(builddir) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) modules
+ 
+ modules_install:
+ 	$(MAKE) -C $(KSRC) M=$(builddir) modules_install
+diff --git a/include/automake.mk b/include/automake.mk
+index f34e5c9..33b4214 100644
+--- a/include/automake.mk
++++ b/include/automake.mk
+@@ -2,3 +2,4 @@ include include/linux/automake.mk
+ include include/openflow/automake.mk
+ include include/openvswitch/automake.mk
+ include include/sparse/automake.mk
++include include/openssl/automake.mk
+diff --git a/include/linux/automake.mk b/include/linux/automake.mk
+index 6ca0e40..7e5a276 100644
+--- a/include/linux/automake.mk
++++ b/include/linux/automake.mk
+@@ -1,4 +1,4 @@
+ noinst_HEADERS += \
+ 	include/linux/if_ether.h \
+ 	include/linux/openvswitch.h \
+-	include/linux/types.h
++	include/linux/types.h 
+diff --git a/include/linux/types.h b/include/linux/types.h
+index b88fb1c..31d1eb4 100644
+--- a/include/linux/types.h
++++ b/include/linux/types.h
+@@ -45,10 +45,12 @@
+ #define __bitwise__
+ #endif
+ 
++/*
+ typedef uint8_t  __u8;
+ typedef uint16_t __u16;
+ typedef uint32_t __u32;
+ typedef uint64_t __u64;
++*/
+ 
+ typedef uint16_t __bitwise__ __be16;
+ typedef uint32_t __bitwise__ __be32;
+diff --git a/include/sparse/netinet/ip6.h b/include/sparse/netinet/ip6.h
+index d2a54de..acf465c 100644
+--- a/include/sparse/netinet/ip6.h
++++ b/include/sparse/netinet/ip6.h
+@@ -1,68 +1,191 @@
++/* @(#) $Header: /tcpdump/master/tcpdump/ip6.h,v 1.6.4.1 2005/04/20 10:04:37 guy Exp $ (LBL) */
++/*	$NetBSD: ip6.h,v 1.9 2000/07/13 05:34:21 itojun Exp $	*/
++/*	$KAME: ip6.h,v 1.9 2000/07/02 21:01:32 itojun Exp $	*/
++
++/*
++ * Copyright (C) 1995, 1996, 1997, and 1998 WIDE Project.
++ * All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 3. Neither the name of the project nor the names of its contributors
++ *    may be used to endorse or promote products derived from this software
++ *    without specific prior written permission.
++ *
++ * THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++
+ /*
+- * Copyright (c) 2011 Nicira, Inc.
++ * Copyright (c) 1982, 1986, 1993
++ *	The Regents of the University of California.  All rights reserved.
+  *
+- * Licensed under the Apache License, Version 2.0 (the "License");
+- * you may not use this file except in compliance with the License.
+- * You may obtain a copy of the License at:
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 3. All advertising materials mentioning features or use of this software
++ *    must display the following acknowledgement:
++ *	This product includes software developed by the University of
++ *	California, Berkeley and its contributors.
++ * 4. Neither the name of the University nor the names of its contributors
++ *    may be used to endorse or promote products derived from this software
++ *    without specific prior written permission.
+  *
+- *     http://www.apache.org/licenses/LICENSE-2.0
++ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
+  *
+- * Unless required by applicable law or agreed to in writing, software
+- * distributed under the License is distributed on an "AS IS" BASIS,
+- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+- * See the License for the specific language governing permissions and
+- * limitations under the License.
++ *	@(#)ip.h	8.1 (Berkeley) 6/10/93
+  */
+ 
+-#ifndef __CHECKER__
+-#error "Use this header only with sparse.  It is not a correct implementation."
++#ifndef _NETINET_IP6_H_
++#define _NETINET_IP6_H_
++
++/*
++ * Definition for internet protocol version 6.
++ * RFC 2460
++ */
++
++struct ip6_hdr {
++	union {
++		struct ip6_hdrctl {
++			u_int32_t ip6_un1_flow;	/* 20 bits of flow-ID */
++			u_int16_t ip6_un1_plen;	/* payload length */
++			u_int8_t  ip6_un1_nxt;	/* next header */
++			u_int8_t  ip6_un1_hlim;	/* hop limit */
++		} ip6_un1;
++		u_int8_t ip6_un2_vfc;	/* 4 bits version, top 4 bits class */
++	} ip6_ctlun;
++	struct in6_addr ip6_src;	/* source address */
++	struct in6_addr ip6_dst;	/* destination address */
++};
++
++#define ip6_vfc		ip6_ctlun.ip6_un2_vfc
++#define ip6_flow	ip6_ctlun.ip6_un1.ip6_un1_flow
++#define ip6_plen	ip6_ctlun.ip6_un1.ip6_un1_plen
++#define ip6_nxt		ip6_ctlun.ip6_un1.ip6_un1_nxt
++#define ip6_hlim	ip6_ctlun.ip6_un1.ip6_un1_hlim
++#define ip6_hops	ip6_ctlun.ip6_un1.ip6_un1_hlim
++
++/* in network endian */
++#define IPV6_FLOWINFO_MASK	((u_int32_t)htonl(0x0fffffff))	/* flow info (28 bits) */
++#define IPV6_FLOWLABEL_MASK	((u_int32_t)htonl(0x000fffff))	/* flow label (20 bits) */
++#if 1
++/* ECN bits proposed by Sally Floyd */
++#define IP6TOS_CE		0x01	/* congestion experienced */
++#define IP6TOS_ECT		0x02	/* ECN-capable transport */
+ #endif
+ 
+-#ifndef __NETINET_IP6_SPARSE
+-#define __NETINET_IP6_SPARSE 1
++/*
++ * Extension Headers
++ */
+ 
+-#include <netinet/in.h>
++struct	ip6_ext {
++	u_char	ip6e_nxt;
++	u_char	ip6e_len;
++};
+ 
+-struct ip6_hdr {
+-    union {
+-        struct ip6_hdrctl {
+-            ovs_be32 ip6_un1_flow;
+-            ovs_be16 ip6_un1_plen;
+-            uint8_t ip6_un1_nxt;
+-            uint8_t ip6_un1_hlim;
+-        } ip6_un1;
+-        uint8_t ip6_un2_vfc;
+-    } ip6_ctlun;
+-    struct in6_addr ip6_src;
+-    struct in6_addr ip6_dst;
++/* Hop-by-Hop options header */
++/* XXX should we pad it to force alignment on an 8-byte boundary? */
++struct ip6_hbh {
++	u_int8_t ip6h_nxt;	/* next header */
++	u_int8_t ip6h_len;	/* length in units of 8 octets */
++	/* followed by options */
+ };
+ 
+-#define ip6_vfc   ip6_ctlun.ip6_un2_vfc
+-#define ip6_flow  ip6_ctlun.ip6_un1.ip6_un1_flow
+-#define ip6_plen  ip6_ctlun.ip6_un1.ip6_un1_plen
+-#define ip6_nxt   ip6_ctlun.ip6_un1.ip6_un1_nxt
+-#define ip6_hlim  ip6_ctlun.ip6_un1.ip6_un1_hlim
+-#define ip6_hops  ip6_ctlun.ip6_un1.ip6_un1_hlim
++/* Destination options header */
++/* XXX should we pad it to force alignment on an 8-byte boundary? */
++struct ip6_dest {
++	u_int8_t ip6d_nxt;	/* next header */
++	u_int8_t ip6d_len;	/* length in units of 8 octets */
++	/* followed by options */
++};
++
++/* Option types and related macros */
++#define IP6OPT_PAD1		0x00	/* 00 0 00000 */
++#define IP6OPT_PADN		0x01	/* 00 0 00001 */
++#define IP6OPT_JUMBO		0xC2	/* 11 0 00010 = 194 */
++#define IP6OPT_JUMBO_LEN	6
++#define IP6OPT_ROUTER_ALERT	0x05	/* 00 0 00101 */
++
++#define IP6OPT_RTALERT_LEN	4
++#define IP6OPT_RTALERT_MLD	0	/* Datagram contains an MLD message */
++#define IP6OPT_RTALERT_RSVP	1	/* Datagram contains an RSVP message */
++#define IP6OPT_RTALERT_ACTNET	2 	/* contains an Active Networks msg */
++#define IP6OPT_MINLEN		2
++
++#define IP6OPT_BINDING_UPDATE	0xc6	/* 11 0 00110 */
++#define IP6OPT_BINDING_ACK	0x07	/* 00 0 00111 */
++#define IP6OPT_BINDING_REQ	0x08	/* 00 0 01000 */
++#define IP6OPT_HOME_ADDRESS	0xc9	/* 11 0 01001 */
++#define IP6OPT_EID		0x8a	/* 10 0 01010 */
++
++#define IP6OPT_TYPE(o)		((o) & 0xC0)
++#define IP6OPT_TYPE_SKIP	0x00
++#define IP6OPT_TYPE_DISCARD	0x40
++#define IP6OPT_TYPE_FORCEICMP	0x80
++#define IP6OPT_TYPE_ICMP	0xC0
++
++#define IP6OPT_MUTABLE		0x20
+ 
++/* Routing header */
+ struct ip6_rthdr {
+-    uint8_t ip6r_nxt;
+-    uint8_t ip6r_len;
+-    uint8_t ip6r_type;
+-    uint8_t ip6r_segleft;
++	u_int8_t  ip6r_nxt;	/* next header */
++	u_int8_t  ip6r_len;	/* length in units of 8 octets */
++	u_int8_t  ip6r_type;	/* routing type */
++	u_int8_t  ip6r_segleft;	/* segments left */
++	/* followed by routing type specific data */
+ };
+ 
+-struct ip6_ext {
+-    uint8_t ip6e_nxt;
+-    uint8_t ip6e_len;
++/* Type 0 Routing header */
++struct ip6_rthdr0 {
++	u_int8_t  ip6r0_nxt;		/* next header */
++	u_int8_t  ip6r0_len;		/* length in units of 8 octets */
++	u_int8_t  ip6r0_type;		/* always zero */
++	u_int8_t  ip6r0_segleft;	/* segments left */
++	u_int8_t  ip6r0_reserved;	/* reserved field */
++	u_int8_t  ip6r0_slmap[3];	/* strict/loose bit map */
++	struct in6_addr ip6r0_addr[1];	/* up to 23 addresses */
+ };
+ 
++/* Fragment header */
+ struct ip6_frag {
+-    uint8_t ip6f_nxt;
+-    uint8_t ip6f_reserved;
+-    ovs_be16 ip6f_offlg;
+-    ovs_be32 ip6f_ident;
++	u_int8_t  ip6f_nxt;		/* next header */
++	u_int8_t  ip6f_reserved;	/* reserved field */
++	u_int16_t ip6f_offlg;		/* offset, reserved, and flag */
++	u_int32_t ip6f_ident;		/* identification */
+ };
+ 
+-#define IP6F_OFF_MASK ((OVS_FORCE ovs_be16) 0xfff8)
++#define IP6F_OFF_MASK		0xfff8	/* mask out offset from ip6f_offlg */
++#define IP6F_RESERVED_MASK	0x0006	/* reserved bits in ip6f_offlg */
++#define IP6F_MORE_FRAG		0x0001	/* more-fragments flag */
+ 
+-#endif /* netinet/ip6.h sparse */
++#endif /* not _NETINET_IP6_H_ */
+diff --git a/lib/fatal-signal.c b/lib/fatal-signal.c
+index 8c66ef5..33afee2 100644
+--- a/lib/fatal-signal.c
++++ b/lib/fatal-signal.c
+@@ -158,7 +158,7 @@ fatal_signal_run(void)
+         char namebuf[SIGNAL_NAME_BUFSIZE];
+ 
+         VLOG_WARN("terminating with signal %d (%s)",
+-                  (int)sig_nr, signal_name(sig_nr, namebuf, sizeof namebuf));
++                  (int)sig_nr, signal_name(sig_nr));
+         call_hooks(sig_nr);
+ 
+         /* Re-raise the signal with the default handling so that the program
+diff --git a/lib/fatal-signal.h b/lib/fatal-signal.h
+index 8a1a84b..031e617 100644
+--- a/lib/fatal-signal.h
++++ b/lib/fatal-signal.h
+@@ -16,7 +16,9 @@
+ 
+ #ifndef FATAL_SIGNAL_H
+ #define FATAL_SIGNAL_H 1
+-
++#ifdef ANDROID_BUILD
++#define SIG_ATOMIC_MAX         (2147483647)
++#endif 
+ #include <stdbool.h>
+ 
+ /* Basic interface. */
+diff --git a/lib/netlink-socket.c b/lib/netlink-socket.c
+index fbb1724..f2c2831 100644
+--- a/lib/netlink-socket.c
++++ b/lib/netlink-socket.c
+@@ -16,6 +16,7 @@
+ 
+ #include <config.h>
+ #include "netlink-socket.h"
++#include "util.h" 
+ #include <errno.h>
+ #include <inttypes.h>
+ #include <stdlib.h>
+@@ -32,7 +33,6 @@
+ #include "poll-loop.h"
+ #include "socket-util.h"
+ #include "stress.h"
+-#include "util.h"
+ #include "vlog.h"
+ 
+ VLOG_DEFINE_THIS_MODULE(netlink_socket);
+@@ -70,7 +70,14 @@ struct nl_sock {
+ 
+ /* Compile-time limit on iovecs, so that we can allocate a maximum-size array
+  * of iovecs on the stack. */
+-#define MAX_IOVS 128
++
++
++#define MAX_IOVS 128           /*I did some chnages here */ 
++
++
++#define _XOPEN_IOV_MAX 16
++#define _SC_UIO_MAXIOV UIO_MAXIOV
++
+ 
+ /* Maximum number of iovecs that may be passed to sendmsg, capped at a
+  * minimum of _XOPEN_IOV_MAX (16) and a maximum of MAX_IOVS.
+@@ -609,8 +616,8 @@ nl_sock_transact_multiple(struct nl_sock *sock,
+         /* Batch up to 'max_batch_count' transactions.  But cap it at about a
+          * page of requests total because big skbuffs are expensive to
+          * allocate in the kernel.  */
+-#if defined(PAGESIZE)
+-        enum { MAX_BATCH_BYTES = MAX(1, PAGESIZE - 512) };
++#if defined(PAGE_SIZE)
++        enum { MAX_BATCH_BYTES = MAX(1, PAGE_SIZE - 512) };
+ #else
+         enum { MAX_BATCH_BYTES = 4096 - 512 };
+ #endif
+diff --git a/lib/process.c b/lib/process.c
+index 0aa1842..385ea8c 100644
+--- a/lib/process.c
++++ b/lib/process.c
+@@ -351,12 +351,12 @@ process_status_msg(int status)
+         char namebuf[SIGNAL_NAME_BUFSIZE];
+ 
+         ds_put_format(&ds, "killed (%s)",
+-                      signal_name(WTERMSIG(status), namebuf, sizeof namebuf));
++                      signal_name(WTERMSIG(status)));
+     } else if (WIFSTOPPED(status)) {
+         char namebuf[SIGNAL_NAME_BUFSIZE];
+ 
+         ds_put_format(&ds, "stopped (%s)",
+-                      signal_name(WSTOPSIG(status), namebuf, sizeof namebuf));
++                      signal_name(WSTOPSIG(status)));
+     } else {
+         ds_put_format(&ds, "terminated abnormally (%x)", status);
+     }
+diff --git a/lib/process.h b/lib/process.h
+index d40c1ac..777af6e 100644
+--- a/lib/process.h
++++ b/lib/process.h
+@@ -20,6 +20,9 @@
+ #include <stdbool.h>
+ #include <sys/types.h>
+ 
++#ifdef ANDROID_BUILD
++#define _POSIX_PIPE_BUF            512
++#endif
+ struct process;
+ void process_init(void);
+ char *process_escape_args(char **argv);
+diff --git a/lib/signals.c b/lib/signals.c
+index 1340f54..1352994 100644
+--- a/lib/signals.c
++++ b/lib/signals.c
+@@ -105,7 +105,7 @@ signal_handler(int signr)
+  *
+  * The string is probably a (possibly multi-word) description of the signal
+  * (e.g. "Hangup") instead of just the stringified version of the macro
+- * (e.g. "SIGHUP"). */
++ * (e.g. "SIGHUP"). 
+ const char *
+ signal_name(int signum, char *namebuf, size_t bufsize)
+ {
+@@ -121,6 +121,21 @@ signal_name(int signum, char *namebuf, size_t bufsize)
+     snprintf(namebuf, bufsize, "signal %d", signum);
+     return namebuf;
+ }
++*/
++const char *
++signal_name(int signum)
++{
++    const char *name = NULL;
++#ifdef HAVE_STRSIGNAL
++    name = strsignal(signum);
++#endif
++    if (!name) {
++        static char buffer[7 + INT_STRLEN(int) + 1];
++        sprintf(buffer, "signal %d", signum);
++        name = buffer;
++    }
++    return name;
++}
+ 
+ void
+ xsigaction(int signum, const struct sigaction *new, struct sigaction *old)
+@@ -129,7 +144,7 @@ xsigaction(int signum, const struct sigaction *new, struct sigaction *old)
+         char namebuf[SIGNAL_NAME_BUFSIZE];
+ 
+         VLOG_FATAL("sigaction(%s) failed (%s)",
+-                   signal_name(signum, namebuf, sizeof namebuf),
++                   signal_name(signum),
+                    strerror(errno));
+     }
+ }
+diff --git a/lib/signals.h b/lib/signals.h
+index 3294293..2444584 100644
+--- a/lib/signals.h
++++ b/lib/signals.h
+@@ -27,7 +27,10 @@ bool signal_poll(struct signal *);
+ void signal_wait(struct signal *);
+ 
+ enum { SIGNAL_NAME_BUFSIZE = 7 + INT_STRLEN(int) + 1 };
+-const char *signal_name(int signum, char *namebuf, size_t bufsize);
++
++/*const char *signal_name(int signum, char *namebuf, size_t bufsize);*/
++
++const char *signal_name(int signum);
+ 
+ void xsigaction(int signum, const struct sigaction *, struct sigaction *old);
+ void xpthread_sigmask(int how, const sigset_t *, sigset_t *old);
+diff --git a/lib/socket-util.h b/lib/socket-util.h
+index 96aad5d..1209491 100644
+--- a/lib/socket-util.h
++++ b/lib/socket-util.h
+@@ -26,6 +26,16 @@
+ #include <netinet/in_systm.h>
+ #include <netinet/ip.h>
+ 
++#ifdef ANDROID_BUILD
++#include <sys/socket.h> //@huangty
++#include <linux/time.h> //@huangty
++#endif 
++
++#ifdef ANDROID_BUILD
++#include <sys/socket.h> //@huangty
++#include <linux/time.h> //@huangty
++#endif 
++
+ int set_nonblocking(int fd);
+ void xset_nonblocking(int fd);
+ int set_dscp(int fd, uint8_t dscp);
+diff --git a/lib/stream-provider.h b/lib/stream-provider.h
+index 43c63e8..38e1f33 100644
+--- a/lib/stream-provider.h
++++ b/lib/stream-provider.h
+@@ -17,6 +17,7 @@
+ #ifndef STREAM_PROVIDER_H
+ #define STREAM_PROVIDER_H 1
+ 
++
+ #include <sys/types.h>
+ #include "stream.h"
+ 
+diff --git a/lib/stream-ssl.c b/lib/stream-ssl.c
+index 5caac49..31bc041 100644
+--- a/lib/stream-ssl.c
++++ b/lib/stream-ssl.c
+@@ -29,7 +29,7 @@
+ #include <openssl/ssl.h>
+ #include <openssl/x509v3.h>
+ #include <poll.h>
+-#include <sys/fcntl.h>
++#include <fcntl.h>  /*it was #include<sys/fcntl.h>*/
+ #include <sys/stat.h>
+ #include <unistd.h>
+ #include "coverage.h"
+diff --git a/lib/stream-unix.c b/lib/stream-unix.c
+index dbee135..190d32b 100644
+--- a/lib/stream-unix.c
++++ b/lib/stream-unix.c
+@@ -43,20 +43,17 @@ static int
+ unix_open(const char *name, char *suffix, struct stream **streamp,
+           uint8_t dscp OVS_UNUSED)
+ {
+-    char *connect_path;
++    const char *connect_path = suffix;
+     int fd;
+-
+-    connect_path = abs_file_name(ovs_rundir(), suffix);
++	
+     fd = make_unix_socket(SOCK_STREAM, true, NULL, connect_path);
+-
+     if (fd < 0) {
+         VLOG_DBG("%s: connection failed (%s)", connect_path, strerror(-fd));
+-        free(connect_path);
+         return -fd;
+     }
+-
+-    free(connect_path);
++	
+     return new_fd_stream(name, fd, check_connection_completion(fd), streamp);
++
+ }
+ 
+ const struct stream_class unix_stream_class = {
+diff --git a/utilities/ovs-dpctl.c b/utilities/ovs-dpctl.c
+index 54505e8..f0a9f70 100644
+--- a/utilities/ovs-dpctl.c
++++ b/utilities/ovs-dpctl.c
+@@ -74,6 +74,7 @@ static void parse_options(int argc, char *argv[]);
+ int
+ main(int argc, char *argv[])
+ {
++	
+     set_program_name(argv[0]);
+     parse_options(argc, argv);
+     signal(SIGPIPE, SIG_IGN);
+diff --git a/utilities/ovs-ofctl.c b/utilities/ovs-ofctl.c
+index 48f0fbf..77006c3 100644
+--- a/utilities/ovs-ofctl.c
++++ b/utilities/ovs-ofctl.c
+@@ -25,7 +25,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
+-#include <sys/fcntl.h>
++#include <fcntl.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+ 
+diff --git a/vswitchd/bridge.c b/vswitchd/bridge.c
+index 3513810..9b2cad9 100644
+--- a/vswitchd/bridge.c
++++ b/vswitchd/bridge.c
+@@ -40,7 +40,7 @@
+ #include "ofpbuf.h"
+ #include "ofproto/ofproto.h"
+ #include "poll-loop.h"
+-#include "sha1.h"
++#include "lib/sha1.h"
+ #include "shash.h"
+ #include "smap.h"
+ #include "socket-util.h"
